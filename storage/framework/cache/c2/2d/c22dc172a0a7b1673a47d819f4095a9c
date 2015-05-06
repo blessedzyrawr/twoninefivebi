@@ -1,0 +1,44 @@
+1429194146s:1776:"a:5:{s:5:"mtime";i:1429193481;s:7:"content";s:809:"description = "Maintenance"
+
+[session]
+security = "all"
+==
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Politi.co - {{ this.page.title }}</title>
+  <meta name="description" content="{{ this.page.meta_description }}">
+  <meta name="title" content="{{ this.page.meta_title }}">
+  <meta name="author" content="The Filipino People">
+
+	</head>
+
+	<body class="home" style="background-color: #0b233f;">
+  <img style="margin: 0 auto;" src="{{ 'assets/images/pulitico.jpg'|theme }}" alt="Coming Soon" />
+	</body>
+</html>";s:8:"settings";a:2:{s:11:"description";s:11:"Maintenance";s:10:"components";a:1:{s:7:"session";a:1:{s:8:"security";s:3:"all";}}}s:4:"code";N;s:6:"markup";s:750:"<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Politi.co - {{ this.page.title }}</title>
+  <meta name="description" content="{{ this.page.meta_description }}">
+  <meta name="title" content="{{ this.page.meta_title }}">
+  <meta name="author" content="The Filipino People">
+
+	</head>
+
+	<body class="home" style="background-color: #0b233f;">
+  <img style="margin: 0 auto;" src="{{ 'assets/images/pulitico.jpg'|theme }}" alt="Coming Soon" />
+	</body>
+</html>";}";

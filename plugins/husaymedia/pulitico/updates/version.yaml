@@ -1,0 +1,9 @@
+1.0.1:
+    - Initialize plugin.
+    - create_politicians_table.php
+    - create_positions_table.php
+    - create_testimonials_table.php
+    - create_locations_table.php
+    - added seed files
+    - seed_locations.php
+    - seed_politicians.php

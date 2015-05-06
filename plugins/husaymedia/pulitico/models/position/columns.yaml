@@ -1,0 +1,21 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    title:
+        label: Title
+        relation: title
+        select: name
+    location:
+        label: Location
+        relation: location
+        select: name
+    term:
+        label: Term
+    status:
+        label: Status
+    created_at:
+        label: Date Added
+        type: date
+        invisible: true

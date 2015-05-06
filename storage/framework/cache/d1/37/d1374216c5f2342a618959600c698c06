@@ -1,0 +1,61 @@
+1430930029s:2045:"a:5:{s:5:"mtime";i:1429256109;s:7:"content";s:909:"title = "News"
+url = "/news/:page?"
+layout = "default"
+hidden = "0"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = "25"
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+postPage = "news-post"
+categoryFilter = ""
+==
+
+<!-- Start: Main -->
+		<main id="main">
+			<div class="page-header wow animated fadeInDown" data-wow-duration="0.5s">
+				<div class="q-container">
+					<div class="q-row">
+						<div class="q-col-1-1"><h1 class="section-headline"><span>Politi.co</span> News</h1></div>
+					</div>
+				</div>
+			</div>
+			<div class="page-body">
+				<div class="q-container">
+					<div class="q-row">
+						<div class="content q-col-2-3 wow animated fadeIn" data-wow-delay="0.2s" data-wow-duration="0.5s">
+							<div class="blog-archive">
+{% partial 'news-list' %}
+       </div>
+						</div>
+
+{% partial 'news-sidebar' %}
+					</div>
+				</div>
+			</div>
+		</main>
+<!-- End: Main -->";s:8:"settings";a:5:{s:5:"title";s:4:"News";s:3:"url";s:12:"/news/:page?";s:6:"layout";s:7:"default";s:6:"hidden";s:1:"0";s:10:"components";a:1:{s:9:"blogPosts";a:6:{s:10:"pageNumber";s:11:"{{ :page }}";s:12:"postsPerPage";s:2:"25";s:14:"noPostsMessage";s:14:"No posts found";s:9:"sortOrder";s:17:"published_at desc";s:8:"postPage";s:9:"news-post";s:14:"categoryFilter";s:0:"";}}}s:4:"code";N;s:6:"markup";s:668:"<!-- Start: Main -->
+		<main id="main">
+			<div class="page-header wow animated fadeInDown" data-wow-duration="0.5s">
+				<div class="q-container">
+					<div class="q-row">
+						<div class="q-col-1-1"><h1 class="section-headline"><span>Politi.co</span> News</h1></div>
+					</div>
+				</div>
+			</div>
+			<div class="page-body">
+				<div class="q-container">
+					<div class="q-row">
+						<div class="content q-col-2-3 wow animated fadeIn" data-wow-delay="0.2s" data-wow-duration="0.5s">
+							<div class="blog-archive">
+{% partial 'news-list' %}
+       </div>
+						</div>
+
+{% partial 'news-sidebar' %}
+					</div>
+				</div>
+			</div>
+		</main>
+<!-- End: Main -->";}";

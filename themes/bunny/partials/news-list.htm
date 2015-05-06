@@ -1,0 +1,65 @@
+{% for post in posts %}
+    <article class="blog-post">
+       <header class="blog-post-header">
+        <h2 class="blog-post-headline"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <div class="blog-post-info">Published on {{ post.published_at|date('M d, Y') }}</div>
+       </header>
+       {% if post.featured_images.count>1 %}
+        <div class="simple-slider">
+        {% for image in post.featured_images %}
+          <div class="simple-slide">
+           <img
+             data-src="{{ image.filename }}"
+             src="{{ image.path }}"
+             alt="{{ image.description }}" />
+          </div>
+        {% endfor %}
+        </div>
+       {% elseif post.featured_images.count>0 %}
+        {% for image in post.featured_images %}
+         <div class="blog-post-image">
+          <img
+               data-src="{{ image.filename }}"
+               src="{{ image.path }}"
+               alt="{{ image.description }}" />
+         </div>
+        {% endfor %}
+       {% endif %}
+
+       <div class="blog-post-excerpt">
+        {% if post.excerpt %}
+            {{ post.excerpt }}
+            <p><a href="{{ post.url }}" class="button">Continue reading</a></p>
+        {% else %}
+            {{ post.content_html|raw }}
+        {% endif %}
+       </div>
+
+       <footer class="blog-post-footer">
+        <p class="tags">
+          {% for category in post.categories %}
+           <i class="fa fa-tag"></i> <a href="{{ category.url }}">{{ category.name|lower }}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </p>
+       </footer>
+				</article>
+{% else %}
+    <p>Hi there<strong>{{ user.name }} {{ user.surname }}</strong>, <strong>looks like</strong> you're <strong>lost</strong>.<br/>{{ noPostsMessage }}</p>
+{% endfor %}
+
+{% if posts.lastPage > 1 %}
+<div class="pagination">
+  {% if posts.currentPage > 1 %}
+  <a class="prev page-numbers" href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}"><i class="fa fa-caret-left"></i></a>
+  {% endif %}
+
+  {% for page in 1..posts.lastPage %}
+   <a class="page-numbers {{ posts.currentPage == page ? 'current' : null }}" href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+  {% endfor %}
+
+  {% if posts.lastPage > posts.currentPage %}
+  <a class="next page-numbers" href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}"><i class="fa fa-caret-right"></i></a>
+  {% endif %}
+</div>
+
+{% endif %}

@@ -1,0 +1,16 @@
+{
+    "name": "husaymedia/pulitico",
+    "description": "Puliti.co backend manager plugin for October CMS",
+    "homepage": "http://www.puliti.co/",
+    "keywords": ["october", "octobercms", "politician", "rating", "review", "plugin"],
+    "authors": [
+        {
+            "name": "Zyramae O. Bambico",
+            "email": "blessedzyra@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "fabpot/goutte": "2.0.*@dev"
+    }
+}

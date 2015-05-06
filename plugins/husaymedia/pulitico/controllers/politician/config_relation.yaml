@@ -1,0 +1,22 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+testimonials:
+    label: Testimonial
+    view:
+        list: $/husaymedia/pulitico/models/testimonial/columns.yaml
+        toolbarButtons: update|delete
+    manage:
+        form: $/husaymedia/pulitico/models/testimonial/fields.yaml
+        recordsPerPage: 10
+positions:
+    label: Position Record
+    view:
+        list: $/husaymedia/pulitico/models/position/columns.yaml
+        toolbarButtons: create|delete
+        showCheckboxes: true
+    manage:
+        form: $/husaymedia/pulitico/models/position/fields.yaml
+        recordsPerPage: 10
+    deferredBinding: true

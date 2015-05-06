@@ -1,0 +1,10 @@
+title = "Politician"
+url = "/politician/:slug/:politician_id"
+layout = "default"
+hidden = "0"
+
+[politician]
+slug = "{{ :slug }}"
+politician_id = "{{ :politician_id }}"
+==
+{% component "politician" %}

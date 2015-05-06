@@ -1,0 +1,19 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    user:
+        label: Contributor
+        relation: user
+        select: name
+    rating:
+        label: Rating
+        type: partial
+    comment:
+        type: partial
+        label: Comment
+    created_at:
+        label: Date Added
+        type: date
+        invisible: true

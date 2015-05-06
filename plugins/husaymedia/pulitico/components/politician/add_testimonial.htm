@@ -1,0 +1,41 @@
+
+											<h5>Add Your Testimonial</h5>
+													<form
+                   method="post"
+																			id="form-add-testi"
+																			class="note"
+																			data-request="onAddTestimonial"
+																			data-request-update="'{{ __SELF__ }}::edit_testimonial': '#my_testimonial'"
+																			data-request-success="$('recalculate').click()"
+																			data-request-loading="#addTesti_loading"
+													>
+																	<div class="q-row">
+
+																		<div class="q-col-1-2">
+																				<input type="radio" name="vote" value="1" /><span class="large-text rating"> Mahusay <i class="fa fa-thumbs-up"></i> </span>
+																		</div>
+																		<div class="q-col-1-2">
+																				<input type="radio" name="vote" value="0" /><span class="large-text rating negative-rating"> Pangkaraniwan <i class="fa fa-thumbs-down"></i></span>
+																		</div>
+
+																	</div>
+
+																	<div class="q-row">
+																		<div class="q-col-1-1">
+																			<label for="testimonial">What can you say about this politician?</label><br>
+																			<textarea name="testimonial" id="testimonial" class="full-width" rows="4"></textarea>
+																		</div>
+																	</div>
+
+																	<div class="q-row">
+																		<div class="q-col-1-1">
+																			<button type="submit"
+																						class="button button-submit">
+																						<i class="fa fa-quote-left"></i> Add Your Testimonial
+																			</button>
+																		<span id="addTesti_loading" style="display: none;"><i class="fa fa-circle-o-notch fa-spin"></i> please wait...</span>
+
+																		</div>
+																	</div>
+
+													</form>

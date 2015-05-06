@@ -1,0 +1,3 @@
+extension = fileinfo.so
+extension = phar.so
+suhosin.executor.include.whitelist = phar

@@ -1,0 +1,35 @@
+title = "Politician Directory"
+url = "/politician-directory/:filter_slug?/:filter_id?"
+layout = "default"
+hidden = "0"
+meta_title = "Politician Directory"
+meta_description = "Index of all Philippine Politicians."
+
+[directory]
+politician_profile_page = "politician"
+filter_slug = "{{ :filter_slug }}"
+filter_id = "{{ :filter_id }}"
+==
+<main id="main">
+  {% flash %}
+   <div class="alert alert-{{ type }}">{{ message }}</div>
+  {% endflash %}
+  <div class="page-header wow animated fadeInDown" data-wow-duration="0.5s">
+   <div class="q-container">
+    <div class="q-row">
+     <div class="q-col-1-1"><h1 class="section-headline"><span>Politician</span> Directory</h1></div>
+    </div>
+   </div>
+  </div>
+  <div class="page-body">
+   <div class="q-container">
+    <div class="q-row">
+     <div class="content q-col-1-1">
+
+        {% component "directory" %}
+
+     </div>
+    </div>
+   </div>
+  </div>
+ </main>

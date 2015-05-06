@@ -1,0 +1,40 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: $/husaymedia/pulitico/models/title/columns.yaml
+
+# Model Class name
+modelClass: HusayMedia\Pulitico\Models\Title
+
+# List Title
+title: Manage Titles
+
+# Link URL for each record
+recordUrl: husaymedia/pulitico/title/update/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Records to display per page
+recordsPerPage: 50
+
+# Displays the list column set up button
+showSetup: false
+
+# Displays the sorting link on each column
+showSorting: true
+
+# Default sorting column
+defaultSort:
+    column: name
+    direction: asc
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: toolbar_title_list
+    # Search widget configuration
+    search:
+        prompt: backend::lang.list.search_prompt

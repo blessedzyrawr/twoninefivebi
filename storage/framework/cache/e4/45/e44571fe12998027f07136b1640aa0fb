@@ -1,0 +1,17 @@
+1430930263s:1216:"a:5:{s:5:"mtime";i:1429238753;s:7:"content";s:546:"
+								<div class="widget box box-alt">
+																<h4 class="box-headline">Sign up on social:</h4>
+																<p>Register using your social media account</p>
+																{% for name, link in social_login_links %}
+																								<a href="{{ link }}" class='login {{ name|lower }} button'><i class="fa fa-2 fa-{{ name|lower }}"></i>{{ name }}</a>
+																{% endfor %}
+																<span id="oauth_loading" style="display: none;"><i class="fa fa-circle-o-notch fa-spin"></i> please wait...</span>
+								</div>
+";s:8:"settings";a:1:{s:10:"components";a:0:{}}s:4:"code";N;s:6:"markup";s:536:"<div class="widget box box-alt">
+																<h4 class="box-headline">Sign up on social:</h4>
+																<p>Register using your social media account</p>
+																{% for name, link in social_login_links %}
+																								<a href="{{ link }}" class='login {{ name|lower }} button'><i class="fa fa-2 fa-{{ name|lower }}"></i>{{ name }}</a>
+																{% endfor %}
+																<span id="oauth_loading" style="display: none;"><i class="fa fa-circle-o-notch fa-spin"></i> please wait...</span>
+								</div>";}";

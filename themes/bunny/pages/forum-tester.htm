@@ -1,0 +1,152 @@
+title = "Debug Tester"
+url = "/debug-tester"
+layout = "default"
+hidden = "0"
+==
+<?
+		use HusayMedia\Pulitico\Models\Location;
+		use Goutte\Client;
+		function onStart()
+		{
+				$this['logs'] = array();
+				$this['regions'] = [];
+				$this['nodes'] = array();
+				$this['debug'] = 0;
+				$this['test'] = "i am test";
+
+					$client = new Client();
+					$crawler = $client->request('GET', 'http://localhost/municipalities.html');
+$this['province']  = "";
+$this['province_object']  = "";
+$this['index']  = 0;
+$crawler->filter('div > p')->each(function ($node,$i) {
+
+
+		if($node->filter('strong > font')->count()>0){
+				$p_node = $node->filter('strong > font')->first()->text();
+				if($p_node == "Capital"){
+						$region_node = $node->filter('font')->eq(2);
+						$region = $node->filter('font')->eq(2)->text();
+						if(str_contains($region, 'Region:')){
+							$region =  substr($region,strpos($region,':')+2, strpos($region,'Population') - (strpos($region,':')+2));
+						}else{
+							$region = $node->filter('font')->eq(3)->text();
+							$region_node = $node->filter('font')->eq(3);
+							$region =  substr($region,strpos($region,':')+2, strpos($region,'Population') - (strpos($region,':')+2));
+						}
+
+
+
+						$region_object = Location::where('name', '=', $region)->where('type', '=', 'region')->get()->first();
+
+						if( !$region_object ){
+									$region_object = Location::create([
+											'name'      => trim($region),
+											'slug'      => Str::slug($region),
+											'type'      => 'region'
+									]);
+									$this['logs'] = array_add($this['logs'],$this['index'],"added region ".$region_object->name.", id: ".$region_object->id);
+									$this['index'] = $this['index']+1;
+						}
+
+							$this['province_object'] = Location::create([
+											'parent_id' => $region_object->id,
+											'name'      => trim($this['province']),
+											'slug'      => Str::slug(trim($this['province'])),
+											'type'      => 'province'
+									]);
+								$this['logs'] = array_add($this['logs'],$this['index'],"added province ".$this['province_object']->name.", id: ".$this['province_object']->id." parent: ".$region_object->id);
+								$this['index'] = $this['index']+1;
+
+
+
+
+
+						$this['current_node'] = $node;
+						$this['found_city_header'] = FALSE;
+						$region_node->filter('font')->nextAll()->each(function ($inner_node, $i) {
+
+								$this['logs'] = array_add($this['logs'],$this['index'],"for logging: ".$inner_node->text());
+								$this['index'] = $this['index']+1;
+
+
+										if($inner_node->text()=="Cities" || strpos($inner_node->text(), "Municipalities")!==FALSE ){
+												$this['found_city_header'] = TRUE;
+										}else if($this['found_city_header'] == TRUE){
+											$cities = $inner_node->html();
+												$cities = explode("<br>", $cities);
+												if(count($cities)>1){
+													foreach($cities as $city){
+														if(strlen($city)>3){	//simple validation for proper city names
+
+																$city_object = Location::create([
+																		'parent_id' => $this['province_object']->id,
+																		'name'      => trim($city),
+																		'slug'      => Str::slug(trim($city)),
+																		'type'      => 'municipality'
+																]);
+
+																$this['logs'] = array_add($this['logs'],$this['index'],"added city (inside capital node) ".$city.", parent: ".$this['province_object']->name );
+																$this['index'] = $this['index']+1;
+
+														}
+													}
+													$this['found_city_header'] = FALSE;
+												}
+										}
+
+
+
+
+
+
+						});
+
+
+
+
+				}else if($p_node == "Municipalities" ){
+												$cities = $node->filter('font')->last()->html();
+												$cities = explode("<br>", $cities);
+												foreach($cities as $city){
+													$city_object = Location::create([
+															'parent_id' => $this['province_object']->id,
+															'name'      => trim($city),
+															'slug'      => Str::slug(trim($city)),
+															'type'      => 'municipality'
+													]);
+													$this['logs'] = array_add($this['logs'],$this['index'],"added city (inside municipality node) ".$city.", parent: ".$this['province_object']->name );
+													$this['index'] = $this['index']+1;
+												}
+				}else{
+					$this['province'] = $p_node;
+
+				}
+
+
+		}
+
+
+});
+
+					$this['debug'] = $crawler->filter('div > p')->count();
+					$this['j'] = $this['j']+1;
+		}
+?>
+==
+<!-- Start: Main -->
+		<main id="main">
+
+			<!-- Start: Article Grid -->
+			<div class="section article-grid">
+				<p>{{ test }}</p>
+				<p>Node Count: {{ debug }}</p>
+    {% for log in logs %}
+        <p>{{ log }}</p>
+    {% endfor %}
+			</div>
+
+
+			<!-- End: News -->
+		</main>
+		<!-- End: Main -->

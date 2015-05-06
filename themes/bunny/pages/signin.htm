@@ -1,0 +1,89 @@
+title = "Sign-up"
+url = "/sign-up"
+layout = "default"
+hidden = "0"
+
+[account]
+redirect = "home"
+paramCode = "code"
+
+[sociallogin]
+==
+<main id="main">
+			{% flash %}
+    <div class="alert alert-{{ type }}">{{ message }}</div>
+			{% endflash %}
+			<div class="page-header wow animated fadeInDown" data-wow-duration="0.5s">
+				<div class="q-container">
+					<div class="q-row">
+						<div class="q-col-1-1"><h1 class="section-headline"><span>Get Involved</span> Sign-up</h1></div>
+					</div>
+				</div>
+			</div>
+			<div class="page-body">
+				<div class="q-container">
+					<div class="q-row">
+						<div class="content q-col-2-3 wow animated fadeIn" data-wow-delay="0.2s" data-wow-duration="0.5s">
+							<p class="big-text"><em>When <strong>our future is at stake</strong> we have a responsibility to do our best to influence the evolution. Philippines needs you! The World needs you!</em></p>
+					{% if user %}
+
+					<p>Hi there <strong>{{ user.name }} {{ user.surname }}</strong>, <strong>looks like</strong> you're <strong>lost</strong>. You are already signed-in.</p>
+
+					{% else %}
+
+					<form data-request="onRegister" data-request-loading="#signup_loading"
+ class="note"  method="post" >
+								<p>By signing up below you're taking real steps toward giving yourself, your family and friends and everyone else access to <strong>better jobs</strong>, <strong>better health</strong> and <strong>better education</strong>!</p>
+
+								<h3>Your info:</h3>
+								<div class="q-row">
+									<div class="q-col-1-2">
+										<label for="registerFirst">First Name <span class="required">*</span></label><br>
+										<input type="text" name="name" id="registerFirst" class="full-width" value="">
+									</div>
+									<div class="q-col-1-2">
+										<label for="registerLast">Last Name <span class="required">*</span></label><br>
+										<input type="text" name="surname" id="registerLast" class="full-width" value="">
+									</div>
+								</div>
+								<div class="q-row">
+									<div class="q-col-1-1">
+										<label for="registerEmail">What is your Email? <span class="required">*</span></label><br>
+										<input type="email" name="email" id="registerEmail" class="full-width" value="">
+									</div>
+								</div>
+								<div class="q-row">
+									<div class="q-col-1-2">
+										<label for="registerPassword">Desired Password <span class="required">*</span></label><br>
+										<input type="password" name="password" id="registerPassword" class="full-width" value="">
+									</div>
+									<div class="q-col-1-2">
+										<label for="registerPassword2">Confirm Password <span class="required">*</span></label><br>
+										<input type="password" name="password_confirmation" id="registerPassword2" class="full-width" value="">
+									</div>
+								</div>
+								<div class="q-row" id="response">
+            {% partial "signup_response" %}
+        </div>
+								<div class="q-row">
+									<div class="q-col-1-1">
+												<button type="submit" class="button button-submit" data-load-indicator="">Sign-up</button>
+												<span id="signup_loading" style="display: none;"><i class="fa fa-circle-o-notch fa-spin"></i> please wait...</span>
+									</div>
+								</div>
+						</form>
+
+					</div>
+
+					<aside id="sidebar" class="q-col-1-3 wow animated fadeIn" data-wow-delay="0.4s" data-wow-duration="0.5s">
+
+						{% component 'account' %}
+
+					</aside>
+
+					{% endif %}
+
+				</div>
+			</div>
+			</div>
+		</main>

@@ -1,0 +1,49 @@
+1429073558s:2196:"a:5:{s:5:"mtime";i:1429072670;s:7:"content";s:1030:"<!-- Search -->
+<form role="form">
+    <div class="well">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search posts...">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="button"><i class="icon-search"></i></button>
+            </span>
+        </div>
+    </div>
+</form>
+
+<!-- Categories -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Categories
+    </div>
+    <ul class="list-group filter-list-group">
+        <li class="list-group-item"><a href="#">Databases</a> <span class="badge">13</span></li>
+        <li class="list-group-item"><a href="#">Design</a> <span class="badge">24</span></li>
+        <li class="list-group-item"><a href="#">Hardware</a> <span class="badge">12</span></li>
+        <li class="list-group-item"><a href="#">Management</a> <span class="badge">18</span></li>
+        <li class="list-group-item"><a href="#">Security</a> <span class="badge">2</span></li>
+    </ul>
+</div>";s:8:"settings";a:1:{s:10:"components";a:0:{}}s:4:"code";N;s:6:"markup";s:1030:"<!-- Search -->
+<form role="form">
+    <div class="well">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search posts...">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="button"><i class="icon-search"></i></button>
+            </span>
+        </div>
+    </div>
+</form>
+
+<!-- Categories -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Categories
+    </div>
+    <ul class="list-group filter-list-group">
+        <li class="list-group-item"><a href="#">Databases</a> <span class="badge">13</span></li>
+        <li class="list-group-item"><a href="#">Design</a> <span class="badge">24</span></li>
+        <li class="list-group-item"><a href="#">Hardware</a> <span class="badge">12</span></li>
+        <li class="list-group-item"><a href="#">Management</a> <span class="badge">18</span></li>
+        <li class="list-group-item"><a href="#">Security</a> <span class="badge">2</span></li>
+    </ul>
+</div>";}";

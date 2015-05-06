@@ -1,0 +1,42 @@
+title = "News Post"
+url = "/news/stories/:slug"
+layout = "default"
+hidden = "0"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "home"
+==
+<?php
+function onEnd()
+{
+    // Optional - set the page title to the post title
+    if (isset($this->post))
+        $this->page->title = $this->post->title;
+}
+?>
+==
+<!-- Start: Main -->
+		<main id="main">
+			<div class="page-header wow animated fadeInDown" data-wow-duration="0.5s">
+				<div class="q-container">
+					<div class="q-row">
+						<div class="q-col-1-1"><h1 class="section-headline"><span>Politi.co</span> News</h1></div>
+					</div>
+				</div>
+			</div>
+			<div class="page-body">
+				<div class="q-container">
+					<div class="q-row">
+						<div class="content q-col-2-3 wow animated fadeIn" data-wow-delay="0.2s" data-wow-duration="0.5s">
+       <article class="blog-post">
+{% partial 'news-post' %}
+       </article>
+						</div>
+
+{% partial 'news-sidebar' %}
+					</div>
+				</div>
+			</div>
+		</main>
+<!-- End: Main -->

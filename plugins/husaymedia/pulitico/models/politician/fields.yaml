@@ -1,0 +1,80 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    firstname:
+        label: First Name
+        span: left
+        placeholder: Juan
+        required: true
+    
+    surname:
+        label: Last Name
+        span: right
+        placeholder: dela Cruz
+        required: true
+    
+    middlename:
+        label: Middle Name
+        span: left
+        placeholder: Noypi
+
+    slug:
+        label: Slug
+        span: right
+        required: true
+        preset:
+            field: lastname
+            type: slug
+
+tabs:
+    stretch: true
+    fields:
+        biography:
+            tab: Profile
+            label: Biography
+            type: richeditor
+            span: left
+
+        birthdate:
+            tab: Profile
+            label: Birthdate
+            type: datepicker
+            mode: date
+            minDate: 1950-01-01
+            span: right
+
+        politician_since:
+            tab: Profile
+            label: Started Politics
+            type: datepicker
+            mode: date
+            minDate: 1950-01-01
+            span: right        
+
+        positions:
+            tab: Positions
+            type: partial
+            path: fields_positions
+
+secondaryTabs:
+    fields:           
+            
+        profile_images:
+            tab: Profile
+            label: Profile Pictures
+            type: fileupload
+            mode: image
+            comment: (preferrably portraits)
+            imageHeight: 260
+            imageWidth: 260
+            
+        field_images:
+            tab: Profile
+            label: Field Work Photos
+            comment: (preferrably photos of this politician in action, or community projects)
+            type: fileupload
+            mode: image
+            imageHeight: 260
+            imageWidth: 260

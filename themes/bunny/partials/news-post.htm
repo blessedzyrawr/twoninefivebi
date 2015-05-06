@@ -1,0 +1,40 @@
+ <header class="blog-post-header">
+  <h1 class="blog-post-headline">{{ post.title }}</h1>
+  <div class="blog-post-info">Published on {{ post.published_at|date('M d, Y') }}</div>
+ </header>
+
+ <div class="blog-post-image">
+ {% if post.featured_images.count>1 %}
+  <div class="simple-slider">
+  {% for image in post.featured_images %}
+    <div class="simple-slide">
+     <img
+       data-src="{{ image.filename }}"
+       src="{{ image.path }}"
+       alt="{{ image.description }}" />
+    </div>
+  {% endfor %}
+  </div>
+ {% elseif post.featured_images.count>0 %}
+  {% for image in post.featured_images %}
+   <div class="blog-post-image">
+    <img
+         data-src="{{ image.filename }}"
+         src="{{ image.path }}"
+         alt="{{ image.description }}" />
+   </div>
+  {% endfor %}
+ {% endif %}
+ </div>
+
+
+
+ <div class="blog-post-content">
+  {{ post.content_html|raw }}
+ </div>
+
+ <footer class="blog-post-footer">
+  {% for category in post.categories %}
+   <i class="fa fa-tag"></i> <a href="{{ category.url }}">{{ category.name|lower }}</a>{% if not loop.last %}, {% endif %}
+  {% endfor %}
+ </footer>

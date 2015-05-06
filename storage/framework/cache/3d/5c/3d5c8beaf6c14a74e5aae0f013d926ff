@@ -1,0 +1,69 @@
+1430237189s:2444:"a:5:{s:5:"mtime";i:1429256070;s:7:"content";s:1154:"<aside id="sidebar" class="q-col-1-3 wow animated fadeIn" data-wow-delay="0.4s" data-wow-duration="0.5s">
+							<div class="widget">
+								<h4 class="widget-title deco-headline">Categories</h4>
+
+								<div class="widget-content">
+									<ul class="widget-list">
+										<li><a href="#">Nathan's Blog</a>
+											<ul>
+												<li><a href="#">Opinions</a></li>
+												<li><a href="#">Interviews</a>
+													<ul>
+														<li><a href="#">Major Media</a></li>
+														<li><a href="#">Online Publications</a></li>
+														<li><a href="#">Blog Exclusive</a></li>
+													</ul>
+												</li>
+												<li><a href="#">Meetings</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Campaign News</a></li>
+									</ul>
+								</div>
+							</div>
+
+       <div class="widget widget_search">
+								<h4 class="widget-title deco-headline">Search</h4>
+
+								<div class="widget-content">
+									<form method="" action="">
+										<input type="text" value="" placeholder="Search here...">
+										<input type="submit" value="Search">
+									</form>
+								</div>
+							</div>
+</aside>";s:8:"settings";a:1:{s:10:"components";a:0:{}}s:4:"code";N;s:6:"markup";s:1154:"<aside id="sidebar" class="q-col-1-3 wow animated fadeIn" data-wow-delay="0.4s" data-wow-duration="0.5s">
+							<div class="widget">
+								<h4 class="widget-title deco-headline">Categories</h4>
+
+								<div class="widget-content">
+									<ul class="widget-list">
+										<li><a href="#">Nathan's Blog</a>
+											<ul>
+												<li><a href="#">Opinions</a></li>
+												<li><a href="#">Interviews</a>
+													<ul>
+														<li><a href="#">Major Media</a></li>
+														<li><a href="#">Online Publications</a></li>
+														<li><a href="#">Blog Exclusive</a></li>
+													</ul>
+												</li>
+												<li><a href="#">Meetings</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Campaign News</a></li>
+									</ul>
+								</div>
+							</div>
+
+       <div class="widget widget_search">
+								<h4 class="widget-title deco-headline">Search</h4>
+
+								<div class="widget-content">
+									<form method="" action="">
+										<input type="text" value="" placeholder="Search here...">
+										<input type="submit" value="Search">
+									</form>
+								</div>
+							</div>
+</aside>";}";

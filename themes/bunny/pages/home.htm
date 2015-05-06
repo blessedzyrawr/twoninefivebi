@@ -1,0 +1,135 @@
+title = "Home"
+url = "/"
+layout = "default"
+==
+		{% content "big_banner.htm" %}
+		<!-- Start: Main -->
+		<main id="main">
+			{% flash %}
+    <div class="alert alert-{{ type }}">{{ message }}</div>
+			{% endflash %}
+			<!-- Start: Article Grid -->
+			<div class="section article-grid">
+				<div class="q-container">
+					<div class="q-row">
+						<article class="q-col-1-3 wow animated fadeInUp" data-wow-offset="100" data-wow-duration="1s">
+							<div class="article-headline"><h3 class="sub-headline deco-headline"><a href="#">Better <span>Jobs</span></a></h3></div>
+							<div class="article-summary">
+								<div class="article-image"><a href="#"><img src="{{ 'assets/images/pic-placeholder.jpg'|theme }}" alt="Better Jobs"></a></div>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+								<p><a href="#" class="button">Find Out More</a></p>
+							</div>
+						</article>
+						<article class="q-col-1-3 wow animated fadeInUp" data-wow-offset="200" data-wow-duration="1s">
+							<div class="article-headline"><h3 class="sub-headline deco-headline"><a href="#">Better <span>Health</span></a></h3></div>
+							<div class="article-summary">
+								<div class="article-image"><a href="#"><img src="{{ 'assets/images/pic-placeholder-gold.jpg'|theme }}" alt="Better Health"></a></div>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+								<p><a href="#" class="button">Find Out More</a></p>
+							</div>
+						</article>
+						<article class="q-col-1-3 wow animated fadeInUp" data-wow-offset="300" data-wow-duration="1s">
+							<div class="article-headline"><h3 class="sub-headline deco-headline"><a href="#">Better <span>Education</span></a></h3></div>
+							<div class="article-summary">
+								<div class="article-image"><a href="#"><img src="{{ 'assets/images/pic-placeholder-red.jpg'|theme }}" alt="Better Education"></a></div>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+								<p><a href="#" class="button">Find Out More</a></p>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+			<!-- End: Article Grid -->
+
+			<!-- Start: Social Updates -->
+			<div class="section social-updates">
+				<div class="q-container">
+					<div class="q-row">
+						<div class="q-col-1-3">
+							<h2 class="section-headline wow animated fadeInLeft" data-wow-offset="100" data-wow-duration="0.5s"><span>The Campaign in</span>Social Media</h2>
+							<ul class="social-profiles">
+								<li><a href="#" class="social-button social-facebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#" class="social-button social-twitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+							</ul>
+						</div>
+						<div class="q-col-2-3 wow animated fadeInUp" data-wow-duration="0.5s" data-wow-offset="200">
+							<div id="social-slider" class="simple-slider">
+								<div class="simple-slide">
+									<div class="social-update">California is the first state to ever reach a trillion dollar economy in gross state product. <a href="#">#USpride</a></div>
+									<p class="social-update-info"><a href="#">1 day ago</a> on Twitter via <a href="#">@NatForSenate</a></p>
+								</div>
+								<div class="simple-slide">
+									<div class="social-update">Washington is the second state to ever reach a trillion dollar economy in gross state product. <a href="#">#USpride</a></div>
+									<p class="social-update-info"><a href="#">1 day ago</a> on Twitter via <a href="#">@NatForSenate</a></p>
+								</div>
+								<div class="simple-slide">
+									<div class="social-update">Oregon is the third state to ever reach a trillion dollar economy in gross state product. <a href="#">#USpride</a></div>
+									<p class="social-update-info"><a href="#">1 day ago</a> on Twitter via <a href="#">@NatForSenate</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End: Social Updates -->
+
+			<!-- Start: News -->
+			<div class="section section-alt home-news">
+				<div class="q-container">
+					<div class="q-row">
+						<div class="q-col-1-3">
+							<h2 class="section-headline wow animated fadeInLeft" data-wow-offset="100" data-wow-duration="0.5s"><span>News, Blogs, Roadmap</span>Follow Nathan</h2>
+						</div>
+						<div class="q-col-1-3 wow animated zoomIn" data-wow-duration="0.5s" data-wow-offset="200">
+							<h3 class="sub-headline">The <span>Campaign Scoop</span></h3>
+
+							<div class="headline-list">
+								<ul>
+									<li>
+										<h4><a href="#">Duis autem vel eum iriure dolor in hend rerit in vulputate velit esse</a></h4>
+										<div class="info"><i class="fa fa-clock-o"></i> Jul 4th, 2014 in <a href="#">Campaign News</a></div>
+									</li>
+									<li>
+										<h4><a href="#">Nam liber tempor cum soluta nobis elei fend option congue nihil</a></h4>
+										<div class="info"><i class="fa fa-clock-o"></i> Jul 1st, 2014 in <a href="#">Nathan's Blog</a></div>
+									</li>
+									<li>
+										<h4><a href="#">Eodem modo typi, qui nunc nobis videntur parum claritas</a></h4>
+										<div class="info"><i class="fa fa-clock-o"></i> Jun 26th, 2014 in <a href="#">Campaign News</a></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="q-col-1-3 wow animated zoomIn" data-wow-duration="0.5s" data-wow-offset="200">
+							<h3 class="sub-headline">Follow the <span>Roadmap</span></h3>
+
+							<p>Nathan is in constant contact with the Real America, the Real People. <a href="#">View the Roadmap</a></p>
+							<table class="light-table events-table">
+								<tr>
+									<th>Location</th>
+									<th class="text-right">Date</th>
+								</tr>
+								<tr>
+									<td><a href="#"><strong>Herbert Hoover High School</strong></a><br>San Diego, CA</td>
+									<td class="text-right"><strong>07.07.2014</strong><br>6:30 PM</td>
+								</tr>
+								<tr>
+									<td><a href="#"><strong>John Marshall High School</strong></a><br>Los Angeles, CA</td>
+									<td class="text-right"><strong>08.07.2014</strong><br>6:30 PM</td>
+								</tr>
+								<tr>
+									<td><a href="#"><strong>San Jose High School</strong></a><br>San Jose, CA</td>
+									<td class="text-right"><strong>10.07.2014</strong><br>7:00 PM</td>
+								</tr>
+								<tr>
+									<td><a href="#"><strong>George Washington High School</strong></a><br>San Francisco, CA</td>
+									<td class="text-right"><strong>11.07.2014</strong><br>8:00 PM</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End: News -->
+		</main>
+		<!-- End: Main -->

@@ -1,0 +1,28 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Location
+
+# Model Form Field configuration
+form: $/husaymedia/pulitico/models/location/fields.yaml
+
+# Model Class name
+modelClass: HusayMedia\Pulitico\Models\Location
+
+# Default redirect location
+defaultRedirect: husaymedia/pulitico/location
+
+# Create page
+create:
+    title: Add Location
+    redirect: husaymedia/pulitico/location/update/:id
+    redirectClose: husaymedia/pulitico/location
+
+# Update page
+update:
+    title: Edit Location
+    redirect: husaymedia/pulitico/location
+    redirectClose: husaymedia/pulitico/location
+

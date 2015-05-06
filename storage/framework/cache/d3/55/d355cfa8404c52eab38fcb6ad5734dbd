@@ -1,0 +1,10 @@
+1430930029s:591:"a:5:{s:5:"mtime";i:1430657075;s:7:"content";s:199:"title = "Politician"
+url = "/politician/:slug/:politician_id"
+layout = "default"
+hidden = "0"
+
+[politician]
+slug = "{{ :slug }}"
+politician_id = "{{ :politician_id }}"
+==
+{% component "politician" %}";s:8:"settings";a:5:{s:5:"title";s:10:"Politician";s:3:"url";s:32:"/politician/:slug/:politician_id";s:6:"layout";s:7:"default";s:6:"hidden";s:1:"0";s:10:"components";a:1:{s:10:"politician";a:2:{s:4:"slug";s:11:"{{ :slug }}";s:13:"politician_id";s:20:"{{ :politician_id }}";}}}s:4:"code";N;s:6:"markup";s:28:"{% component "politician" %}";}";

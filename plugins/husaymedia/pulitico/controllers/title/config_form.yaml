@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Title
+
+# Model Form Field configuration
+form: $/husaymedia/pulitico/models/title/fields.yaml
+
+# Model Class name
+modelClass: HusayMedia\Pulitico\Models\Title
+
+# Default redirect location
+defaultRedirect: husaymedia/pulitico/title
+
+# Create page
+create:
+    title: Add Title
+    redirect: husaymedia/pulitico/title/update/:id
+    redirectClose: husaymedia/pulitico/title
+
+# Update page
+update:
+    title: Edit Title
+    redirect: husaymedia/pulitico/title
+    redirectClose: husaymedia/pulitico/title
+
+# Preview page
+preview:
+    title: Preview Politician's Profile

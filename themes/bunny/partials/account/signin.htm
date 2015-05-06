@@ -1,0 +1,9 @@
+
+								<div class="widget box box-alt">
+																<h4 class="box-headline">Sign up on social:</h4>
+																<p>Register using your social media account</p>
+																{% for name, link in social_login_links %}
+																								<a href="{{ link }}" class='login {{ name|lower }} button'><i class="fa fa-2 fa-{{ name|lower }}"></i>{{ name }}</a>
+																{% endfor %}
+																<span id="oauth_loading" style="display: none;"><i class="fa fa-circle-o-notch fa-spin"></i> please wait...</span>
+								</div>

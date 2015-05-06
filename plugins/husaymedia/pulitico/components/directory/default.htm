@@ -1,0 +1,132 @@
+    <div class="q-row">
+      <div class="q-col-1-1" id="search_results_placeholder">
+        {% if filterResults!=null %}
+          {% partial __SELF__ ~ "::filter_result" title=title %}
+        {% endif %}
+      </div>
+    </div>
+
+    <p>
+      <br/>
+    </p>
+     <div class="note">
+
+       <div class="q-row">
+
+        <div class="q-col-1-3">
+         <form
+               method="post"
+               data-request="onSearch"
+               data-request-success="window.scrollToTop()"
+               data-request-update="'{{ __SELF__ }}::filter_result': '#search_results_placeholder'" >
+          <h3>Search Puliti.co by Name:</h3>
+          <p><input type="text" placeholder="Juan dela Cruz" name="politicianName" class="full-width"></p>
+          <p>
+
+              <button type="submit" class="button button-submit">Search</button>
+          </p>
+
+         </form>
+        </div>
+
+        <div class="q-col-2-3">
+         <form data-request="onFilter" class="blog-post" method="post" data-request-update="'{{ __SELF__ }}::search_result': '#search_results_placeholder'" >
+          <div class="q-row">
+           <div class="q-col-1-2">
+            <h3>Display All Puliti.co by Title:</h3>
+
+                <ul id="filterBranch">
+                  {% for branch in topLevelTitles %}
+                    <li>
+                      <a
+                         href="{{ url_current() }}/{{ branch.slug }}/{{ branch.id }}"
+                         data-request-data="filterSlug:'{{ branch.slug }}',filterId:'{{ branch.id }}',type:'title'"
+                         data-request="onFilter"
+                         data-request-success="window.branchFilters.collapseAll();window.scrollToTop()"
+                         data-request-update="'{{ __SELF__ }}::filter_result': '#search_results_placeholder'" >
+                          {{ branch.name }}
+                      </a>
+                      {% if branch.children().count > 0 %}
+
+                        <ul>
+                        {% for child in branch.children() %}
+                          <li>
+                            <a
+                               href="{{ url_current() }}/{{ child.slug }}/{{ child.id }}"
+                               data-request-data="filterSlug:'{{ child.slug }}',filterId:'{{ child.id }}',type:'title'"
+                               data-request="onFilter"
+                               data-request-success="window.branchFilters.collapseAll();window.scrollToTop()"
+                               data-request-update="'{{ __SELF__ }}::filter_result': '#search_results_placeholder'" >
+                               - {{ child.name }}
+                            </a>
+                          </li>
+                        {% endfor %}
+                        </ul>
+                      {% endif %}
+
+                    </li>
+                  {% endfor %}
+                </ul>
+
+
+
+           </div>
+           <div class="q-col-1-2">
+            <h3>Filter by Location:</h3>
+            <ul id="filterRegion">
+                  {% for regions in topLevelLocations %}
+                    <li>
+                      <a
+                         href="{{ url_current() }}/{{ regions.slug }}/{{ regions.id }}"
+                         data-request-data="filterSlug:'{{ regions.slug }}',filterId:'{{ regions.id }}',type:'region'"
+                         data-request="onFilter"
+                         data-request-success="window.regionFilters.collapseAll();window.scrollToTop()"
+                         data-request-update="'{{ __SELF__ }}::filter_result': '#search_results_placeholder'" >
+                          {{ regions.name }}
+                      </a>
+                      {% if regions.children().count > 0 %}
+
+                        <ul>
+                        {% for provinces in regions.children() %}
+                          <li>
+                            <a
+                               href="{{ url_current() }}/{{ provinces.slug }}/{{ provinces.id }}"
+                               data-request-data="filterSlug:'{{ provinces.slug }}',filterId:'{{ provinces.id }}',type:'region'"
+                               data-request="onFilter"
+                               data-request-success="window.regionFilters.collapseAll();window.scrollToTop()"
+                               data-request-update="'{{ __SELF__ }}::filter_result': '#search_results_placeholder'" >
+                                {{ provinces.name }}
+                            </a>
+                              {% if provinces.children().count > 0 %}
+
+                                <ul>
+                                {% for city in provinces.children() %}
+                                  <li>
+                                    <a
+                                       href="{{ url_current() }}/{{ city.slug }}/{{ city.id }}"
+                                       data-request-data="filterSlug:'{{ city.slug }}',filterId:'{{ city.id }}',type:'region'"
+                                       data-request="onFilter"
+                                       data-request-success="window.regionFilters.collapseAll();window.scrollToTop()"
+                                       data-request-update="'{{ __SELF__ }}::filter_result': '#search_results_placeholder'" >
+                                        {{ city.name }}
+                                    </a>
+                                  </li>
+                                {% endfor %}
+                                </ul>
+                              {% endif %}
+                          </li>
+
+                        {% endfor %}
+                        </ul>
+                      {% endif %}
+
+                    </li>
+                  {% endfor %}
+                </ul>
+           </div>
+          </div>
+         </form>
+        </div>
+
+       </div>
+     </div>

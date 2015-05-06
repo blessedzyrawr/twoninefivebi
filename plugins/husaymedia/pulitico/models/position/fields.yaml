@@ -1,0 +1,33 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title_id:
+        label: Title
+        type: dropdown
+        span: left
+        placeholder: Mayor        
+        required: true
+
+    location_id:
+        label: Location        
+        placeholder: San Isidro
+        type: dropdown
+        span: right        
+        required: true
+    
+    term:
+        label: Term
+        span: left
+        comment: e.g. 1992 - 1995, 2008 - 2016
+
+    status:
+        label: Status
+        span: right
+        required: true
+        type: dropdown
+        options:
+            current: Current
+            former: Former
+            candidate: Candidate

@@ -1,0 +1,167 @@
+   <div class="page-header wow animated fadeInDown" data-wow-duration="0.5s">
+				<div class="q-container">
+					<div class="q-row">
+						<div class="q-col-1-1">
+							<nav id="breadcrumbs">
+								<ul>
+									<li><a href="{{ '/politician-directory'|app }}">Politician Directory</a></li>
+									{% for crumb in politician.crumbs() %}
+									<li>
+											<a href="{{ 'politician-directory'|app }}/{{ crumb.slug }}/{{ crumb.id }}" >
+															{{ crumb.name }}
+											</a>
+									</li>
+									{% endfor %}
+								</ul>
+							</nav>
+							<h1 class="section-headline"><span>{{ politician.positions[0].title.name }}</span> {{ politician.getFullName }}</h1>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+   <div class="page-body">
+				<div class="q-container">
+					<div class="q-row">
+						<div class="content q-col-1-1">
+
+       <div class="q-row">
+								<div class="q-col-1-5">
+
+									<h5>Approval Rating</h5>
+									<div id="rating_wrapper">
+									{% if politician.getRating!=0 %}
+										<p class="large-text rating {% if politician.getRating<0 %}negative-rating{% endif %}">
+											{% if politician.getRating<0 %}
+											<i class="fa fa-thumbs-down"></i>
+											{% else %}
+											<i class="fa fa-thumbs-up"></i>
+											{% endif %}
+											{{ politician.getRating }}
+										</p>
+									{% else %}
+										<p>Be the first to rate!</p>
+									{% endif %}
+									</div>
+									<button
+																	class="invisible"
+															id="recalculate"
+															data-request="onRecalculateRating"
+               data-request-update="'{{ __SELF__ }}::recalculate_rating': '#rating_wrapper'"
+															 />
+								</div>
+
+								<div class="q-col-4-5">
+									<h5>Biography</h5>
+									<div class="q-row">
+										<div class="q-col-4-5">
+											{% if politician.biography!="" %}
+												{{ politician.biography|raw }}
+											{% else %}
+											<p>This politician has no biography yet.</p>
+											{% endif %}
+										</div>
+										<div class="q-col-1-5">
+											{% if politician.profile_images.count>0 %}
+													<div class="simple-slider">
+													{% for image in politician.profile_images %}
+															<div class="simple-slide">
+																<img
+																		data-src="{{ image.filename }}"
+																		src="{{ image.path }}"
+																		alt="{{ image.description }}" />
+															</div>
+													{% endfor %}
+													</div>
+											{% else %}
+														<img
+															data-src="{{ 'assets/images/candidate-fancy.png'|theme }}"
+															src="{{ 'assets/images/candidate-fancy.png'|theme }}"
+															alt="placeholder" />
+											{% endif %}
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							{% if politician.testimonials.count>0 %}
+       <h2>Testimonials</h2>
+       <div id="demo-tabs-hor" class="tabs-hor">
+								<ul class="resp-tabs-list">
+									<li id="positive_toggle">Positive</li>
+									<li id="negative_toggle">Negative</li>
+								</ul>
+								<div class="resp-tabs-container">
+									<div id="positive_testi_container">
+										{% if politician.getPositiveTestimonials.count>0 %}
+											{% for testimonial in politician.getPositiveTestimonials %}
+
+            <div class="q-row">
+													<div class="q-col-1-5">
+														<h3>{{ testimonial.user.name }} {{ testimonial.user.surname }}</h3>
+														<img
+															data-src="{{ testimonial.user.avatar.filename }}"
+															src="{{ testimonial.user.avatar.path }}"
+															alt="{{ testimonial.user.avatar.description }}" />
+													</div>
+													<div class="q-col-4-5">
+														<blockquote>{{ testimonial.comment|raw }}</blockquote>
+													</div>
+												</div>
+											{% endfor %}
+										{% else %}
+											<p>(No positive ratings yet)</p>
+									{% endif %}
+         </div>
+
+									<div id="negative_testi_container">
+										{% if politician.getNegativeTestimonials.count>0 %}
+											{% for testimonial in politician.getNegativeTestimonials %}
+
+            <div class="q-row">
+													<div class="q-col-1-5">
+														<h3>{{ testimonial.user.name }} {{ testimonial.user.surname }}</h3>
+														<img
+															data-src="{{ testimonial.user.avatar.filename }}"
+															src="{{ testimonial.user.avatar.path }}"
+															alt="{{ testimonial.user.avatar.description }}" />
+													</div>
+													<div class="q-col-4-5">
+														<blockquote>{{ testimonial.comment|raw }}</blockquote>
+													</div>
+												</div>
+											{% endfor %}
+										{% else %}
+											<p>(No negative ratings yet)</p>
+										{% endif %}
+									</div>
+
+								</div>
+							</div>
+							{% endif %}
+
+							<div class="q-row" >
+								<div class="q-col-1-1" id="my_testimonial">
+									{% if user %}
+
+										{% if politician.getUserTestimonial  %}
+											{% partial __SELF__ ~ "::edit_testimonial" testimonial=politician.getUserTestimonial %}
+										{% else %}
+											{% partial __SELF__ ~ "::add_testimonial" %}
+										{% endif %}
+
+									{% else %}
+										<p>You must be <a href="{{ 'sign-up'|app }}">logged in</a> to add or edit ratings to our puliti.cos.<a href="{{ 'sign-up'|app }}">Click here to go to login or register</a></p>
+									{% endif %}
+								</div>
+							</div>
+
+
+      </div>
+    </div>
+   </div>
+  </div>

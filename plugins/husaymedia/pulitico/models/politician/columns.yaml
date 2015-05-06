@@ -1,0 +1,28 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    firstname:
+        label: First Name
+        searchable: true
+    middlename:
+        label: Middle Name
+        searchable: true
+    surname:
+        label: Last Name
+        searchable: true
+    title:
+        label: Title
+        relation: titles
+        searchable: true
+        select: name
+    #location:
+    #    label: Location
+    #    relation: position
+    #    select: location
+    
+    created_at:
+        label: Date Added
+        type: date
+        invisible: true

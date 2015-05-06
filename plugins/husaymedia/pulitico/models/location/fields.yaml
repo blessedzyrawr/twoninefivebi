@@ -1,0 +1,33 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name
+        span: left
+        placeholder: Location Name
+        required: true
+    slug:
+        label: Slug
+        span: right
+        required: true
+        preset: name
+    type:
+        label: Type
+        span: left
+        type: dropdown
+        options:
+         region: Region
+         province: Province
+         municipality: Municipality
+    parent_id:
+        label: Parent Location
+        span: right
+        type: dropdown
+        dependsOn: type
+        trigger:
+            action: hide
+            field: type
+            condition: value[region]
+    

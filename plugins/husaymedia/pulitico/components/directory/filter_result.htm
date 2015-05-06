@@ -1,0 +1,39 @@
+ <h3>
+  {% if title %}
+   {{ title }}
+  {% else %}
+   Search Results
+  {% endif %}
+ </h3>
+ {% if filterResults|length <= 0 %}
+  <p>No politicians were found to match your search criteria</p>
+ {% else %}
+  <table>
+   <tr>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Location</th>
+    <th>Status</th>
+   </tr>
+
+   {% for politician in filterResults %}
+
+    <tr>
+     <td class="small-text"><strong><a href="{{ __SELF__.profilePage|app }}/{{ politician.slug }}/{{ politician.id }}">{{ politician.firstname }} {{ politician.surname }}</strong></a></td>
+     <td><a href="{{ __SELF__.profilePage|app }}/{{ politician.slug }}/{{ politician.id }}">{{ politician.title }}</a></td>
+     <td><a href="{{ __SELF__.profilePage|app }}/{{ politician.slug }}/{{ politician.id }}">
+      {% if politician.location == 'Anywhere' %}
+      -
+      {% else %}
+       {{ politician.location }}
+      {% endif %}
+     </a></td>
+     <td><a href="{{ __SELF__.profilePage|app }}/{{ politician.slug }}/{{ politician.id }}">{{ politician.status }}</a></td>
+    </tr>
+
+   {% endfor %}
+
+  </table>
+
+
+ {% endif %}

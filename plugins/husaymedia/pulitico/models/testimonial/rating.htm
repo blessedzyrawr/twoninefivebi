@@ -1,0 +1,10 @@
+{#
+ $value is the default cell value,
+ $record is the model used for the cell
+ $column is the configured class object
+#}
+{% if $value == TRUE %}
+<i class="fa fa-thumbs-up"></i>
+{% else %}
+<i class="fa fa-thumbs-down"></i>
+{% endif %}

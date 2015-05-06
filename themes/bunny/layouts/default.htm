@@ -1,0 +1,142 @@
+description = "Default layout"
+
+[session]
+security = "all"
+==
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Politi.co - {{ this.page.title }}</title>
+  <meta name="description" content="{{ this.page.meta_description }}">
+  <meta name="title" content="{{ this.page.meta_title }}">
+  <meta name="author" content="The Filipino People">
+
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,700,800' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+  {% styles %}
+  <link href="{{ [
+   'assets/css/normalize.css',
+   'assets/css/grid.css',
+   'assets/css/animate.min.css',
+   'assets/js/plugins/owl-carousel/owl.carousel.css',
+   'assets/js/plugins/owl-carousel/owl.theme.css',
+   'assets/js/plugins/owl-carousel/owl.transitions.css',
+   'assets/js/plugins/easy-responsive-tabs/easyresponsivetabs.css',
+   'assets/js/plugins/magnific-popup/jquery.magnific-popup.css',
+			'assets/js/plugins/toast/jquery.toast.min.css',
+   'assets/css/style.css'
+  ]|theme }}" rel="stylesheet">
+
+		<script type="text/javascript" src="{{ 'assets/js/modernizr.min.js'|theme }}"></script>
+		<!--[if lt IE 9]>
+  <script src="{{ [
+   'assets/js/html5.min.js',
+   'assets/js/respond.js'
+  ]|theme }}"></script>
+		<![endif]-->
+	</head>
+
+	<body class="home">
+
+		<!-- Start: Header -->
+		<header id="header">
+			<div class="q-container">
+				<div id="logo">
+					<a href="{{ 'home'|app }}"><img src="{{ 'assets/images/logo.png'|theme }}" alt=""></a>
+				</div>
+
+				<nav id="nav">
+					<a href="#" id="nav-toggle" title="Navigation"><i class="fa fa-bars"></i></a>
+					<ul>
+						<li><a href="{{ 'home'|app }}">Home <span>Welcome</span></a></li>
+						<li>
+							<a href="{{ 'about'|app }}">About <span>Mission, Vision, Results</span></a>
+							<ul>
+								<li><a href="page-sidebar.html">Nathan's Story</a></li>
+								<li><a href="page-wide.html">Nathan's Vision</a>
+									<ul>
+										<li><a href="page-wide.html#demo-tabs-hor1">Better Jobs</a></li>
+										<li><a href="page-wide.html#demo-tabs-hor2">Better Health</a></li>
+										<li><a href="page-wide.html#demo-tabs-hor3">Better Education</a></li>
+									</ul>
+								</li>
+								<li><a href="page-features.html">Template features</a></li>
+							</ul>
+						</li>
+						<li><a href="page-roadmap.html">Roadmap <span>Campaign Events</span></a></li>
+						<li>
+							<a href="{{ 'news'|app }}">News <span>Puliti.co Editor's Notes</span></a>
+							{#
+							<ul>
+								<li><a href="page-blog.html">Campaign News</a></li>
+								<li><a href="page-blog.html">Nathan's Blog</a></li>
+								<li>
+									<a href="page-gallery.html">Gallery</a>
+									<ul>
+										<li><a href="page-gallery.html">Gallery: 3 Cols</a></li>
+										<li><a href="page-gallery-4col.html">Gallery: 4 Cols</a></li>
+										<li><a href="page-gallery-item-1.html">Item: Type 1</a></li>
+										<li><a href="page-gallery-item-2.html">Item: Type 2</a></li>
+									</ul>
+								</li>
+							</ul>
+							#}
+						</li>
+						{% if user %}
+						<li class="nav-special nav-reverse"><a data-request="onLogout" data-request-data="redirect: '/'">Logout <span>{{ user.name }}</span></a></li>
+						{% else %}
+			    <li class="nav-special nav-reverse">
+							<a href="{{ 'sign-up'|app }}">Get Involved <span>Rate &amp; Review</span></a>
+							<ul>
+								<li><a href="{{ 'sign-up'|app }}">Register</a></li>
+								<li><a href="{{ 'sign-up'|app }}">Sign-in</a></li>
+							</ul>
+						</li>
+						{% endif %}
+
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<!-- End: Header -->
+
+  <!-- Start: Content -->
+  {% page %}
+  <!-- End: Content -->
+
+		<!-- Start: Footer -->
+		<footer id="footer">
+   {% partial "footer" %}
+  </footer>
+		<!-- End: Footer -->
+
+  <script src="{{ [
+   'assets/js/jquery-1.11.1.min.js',
+   'assets/js/jquery-migrate-1.2.1.min.js',
+   'assets/js/jquery-ui.min.js',
+   'assets/js/less-1.7.3.min.js',
+   'assets/js/plugins/jquery.hoverintent.min.js',
+   'assets/js/plugins/jquery.superfish.min.js',
+   'assets/js/plugins/owl-carousel/owl.carousel.min.js',
+   'assets/js/plugins/easy-responsive-tabs/easyresponsivetabs.js',
+   'assets/js/plugins/magnific-popup/jquery.magnific-popup.min.js',
+   'assets/js/plugins/jquery.mixitup.min.js',
+   'assets/js/plugins/jquery.fitvids.js',
+   'assets/js/plugins/jquery.mousewheel.min.js',
+   'assets/js/plugins/jquery.simplr.smoothscroll.min.js',
+   'assets/js/plugins/wow.min.js',
+			'assets/js/plugins/toast/jquery.toast.min.js',
+   'assets/js/custom.electoral.js'
+  ]|theme }}"></script>
+		{% scripts %}
+		{% framework extras %}
+	</body>
+</html>

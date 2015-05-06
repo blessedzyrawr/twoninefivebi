@@ -1,0 +1,50 @@
+1430929847s:2243:"a:2:{s:5:"mtime";i:1430929245;s:7:"content";s:2188:"
+											<h5>Your Rating</h5>
+													<form
+																			method="post"
+																			id="form-edit-testi"
+																			class="note"
+																			data-request="onEditTestimonial"
+																			data-request-success="$('recalculate').click()"
+																			data-request-update="'{{ __SELF__ }}::edit_testimonial': '#my_testimonial'"
+																			data-request-loading="#editTesti_loading"
+													>
+																	<div class="q-row">
+
+																		<div class="q-col-1-2">
+																				<input type="radio" name="vote" value="up" {% if testimonial.rating==1 %}checked="checked"{% endif %} />
+																				<span class="large-text rating"> Mahusay <i class="fa fa-thumbs-up"></i></span>
+																		</div>
+																		<div class="q-col-1-2">
+																				<input type="radio" name="vote" value="down" {% if testimonial.rating==0 %}checked="checked"{% endif %} />
+																				<span class="large-text rating negative-rating"> Pangkaraniwan <i class="fa fa-thumbs-down"></i></span>
+																		</div>
+
+																	</div>
+
+																	<div class="q-row">
+																		<div class="q-col-1-1">
+																			<label for="testimonial">
+																				{% if testimonial.comment!="" %}
+																				Your current opinion about this politician:
+																				{% else %}
+																				What can you say about this politician:
+																				{% endif %}
+																			</label><br>
+																			<textarea name="testimonial" id="testimonial" class="full-width" rows="4">{{ testimonial.comment|raw }}</textarea>
+																		</div>
+																	</div>
+
+																	<div class="q-row">
+																		<div class="q-col-1-1">
+																			<button type="submit"
+																						class="button button-submit">
+																						<i class="fa fa-quote-left"></i> Edit Your Testimonial
+																			</button>
+																		<span id="editTesti_loading" style="display: none;"><i class="fa fa-circle-o-notch fa-spin"></i> please wait...</span>
+
+																		</div>
+																	</div>
+
+													</form>
+";}";

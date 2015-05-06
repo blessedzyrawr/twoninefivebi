@@ -1,0 +1,57 @@
+1430930029s:2081:"a:5:{s:5:"mtime";i:1430903754;s:7:"content";s:929:"title = "Politician Directory"
+url = "/politician-directory/:filter_slug?/:filter_id?"
+layout = "default"
+hidden = "0"
+meta_title = "Politician Directory"
+meta_description = "Index of all Philippine Politicians."
+
+[directory]
+politician_profile_page = "politician"
+filter_slug = "{{ :filter_slug }}"
+filter_id = "{{ :filter_id }}"
+==
+<main id="main">
+  {% flash %}
+   <div class="alert alert-{{ type }}">{{ message }}</div>
+  {% endflash %}
+  <div class="page-header wow animated fadeInDown" data-wow-duration="0.5s">
+   <div class="q-container">
+    <div class="q-row">
+     <div class="q-col-1-1"><h1 class="section-headline"><span>Politician</span> Directory</h1></div>
+    </div>
+   </div>
+  </div>
+  <div class="page-body">
+   <div class="q-container">
+    <div class="q-row">
+     <div class="content q-col-1-1">
+
+        {% component "directory" %}
+
+     </div>
+    </div>
+   </div>
+  </div>
+ </main>";s:8:"settings";a:7:{s:5:"title";s:20:"Politician Directory";s:3:"url";s:47:"/politician-directory/:filter_slug?/:filter_id?";s:6:"layout";s:7:"default";s:6:"hidden";s:1:"0";s:10:"meta_title";s:20:"Politician Directory";s:16:"meta_description";s:36:"Index of all Philippine Politicians.";s:10:"components";a:1:{s:9:"directory";a:3:{s:23:"politician_profile_page";s:10:"politician";s:11:"filter_slug";s:18:"{{ :filter_slug }}";s:9:"filter_id";s:16:"{{ :filter_id }}";}}}s:4:"code";N;s:6:"markup";s:595:"<main id="main">
+  {% flash %}
+   <div class="alert alert-{{ type }}">{{ message }}</div>
+  {% endflash %}
+  <div class="page-header wow animated fadeInDown" data-wow-duration="0.5s">
+   <div class="q-container">
+    <div class="q-row">
+     <div class="q-col-1-1"><h1 class="section-headline"><span>Politician</span> Directory</h1></div>
+    </div>
+   </div>
+  </div>
+  <div class="page-body">
+   <div class="q-container">
+    <div class="q-row">
+     <div class="content q-col-1-1">
+
+        {% component "directory" %}
+
+     </div>
+    </div>
+   </div>
+  </div>
+ </main>";}";
