@@ -1,0 +1,12 @@
+            <div class="q-row">
+													<div class="q-col-1-5">
+														<h3>{{ testimonial.user.name }} {{ testimonial.user.surname }}</h3>
+														<img
+															data-src="{{ testimonial.user.avatar.filename }}"
+															src="{{ testimonial.user.avatar.path }}"
+															alt="{{ testimonial.user.avatar.description }}" />
+													</div>
+													<div class="q-col-4-5">
+														<blockquote>{{ testimonial.comment|raw }}</blockquote>
+													</div>
+												</div>

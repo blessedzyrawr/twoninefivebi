@@ -71,11 +71,11 @@ class Directory extends ComponentBase
         $this->addJs('/plugins/husaymedia/pulitico/assets/js/jQuery.bonsai/jquery.bonsai.js');
         $this->addJs('/plugins/husaymedia/pulitico/assets/js/directoryScripts.js');
 
-        $this->regions = $this->page['regions'] = $this->getRegions();
-        $this->branches = $this->page['branches'] = $this->getBranches();
+        //$this->regions = $this->page['regions'] = $this->getLocations();
+        //$this->branches = $this->page['branches'] = $this->getBranches();
 
         $this->topLevelTitles = $this->page['topLevelTitles'] = $this->getTopLevelTitles();
-        $this->topLevelLocations = $this->page['topLevelLocations'] = $this->getTopLevelLocations();
+        $this->topLevelLocations = $this->page['topLevelLocations'] = $this->getLocations();
 
         /*
         $this->tester = $this->page['tester'] =
@@ -99,27 +99,33 @@ class Directory extends ComponentBase
 
     }
 
-    public function getChildren($parent_id){
-        return LocationModel::selectRaw('CONCAT("child-", id) as identifier, name')->where('parent_id','=',$parent_id)->get()->lists('name', 'identifier');
-    }
-
-
     public function getRegions(){
-        return LocationModel::select('id','name')->where('type','=','region')->where('name','!=','Anywhere')->orderBy('name', 'asc')->get()->lists('name', 'id');
+        return		$this->topLevelLocations->filter(function($item){
+            return $item->parent_id == null;
+        });
     }
 
-    public function getTopLevelLocations(){
-        return LocationModel::select('id','name','slug')->where('parent_id','=',NULL)->where('name','!=','Anywhere')->orderBy('name', 'asc')->get();
+    public function getProvinces($region_id){
+        return		$this->topLevelLocations->filter(function($item) use ($region_id){
+            return $item->parent_id == $region_id;
+        });
     }
+
+    public function getCities($province_id){
+								return		$this->topLevelLocations->filter(function($item) use ($province_id){
+            return $item->parent_id == $province_id;
+        });
+    }
+
+    public function getLocations(){
+        return LocationModel::select('id','name','parent_id','slug')->where('slug','!=','Anywhere')->orderBy('name', 'asc')->get();
+    }
+
 
     public function getTopLevelTitles(){
         return TitleModel::select('id','name','slug')->where('parent_id','=',NULL)->get();
     }
 
-    public function getBranches(){
-        return TitleModel::select('id','name')->where('parent_id','=',NULL)->get()->lists('name', 'id');
-        //return LocationModel::getRegions();
-    }
 
     function onRequestProvince()
     {

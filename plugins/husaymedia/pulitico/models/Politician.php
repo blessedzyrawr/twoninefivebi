@@ -122,7 +122,7 @@ class Politician extends Model {
             $subtotal += ($rating->rating) ? 1 : -1;
         }
         $return = ($subtotal / $total ) * 100;
-        return number_format((float)$return, 2, '.', '');
+        return intval($return);
 
     }
 

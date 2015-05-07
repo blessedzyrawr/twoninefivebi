@@ -5,19 +5,19 @@
 																			id="form-edit-testi"
 																			class="note"
 																			data-request="onEditTestimonial"
-																			data-request-success="$('recalculate').click()"
-																			data-request-update="'{{ __SELF__ }}::edit_testimonial': '#my_testimonial'"
+																			data-request-update="'{{ __SELF__ }}::edit_testimonial': '#my_testimonial','{{ __SELF__ }}::recalculate_rating': '#rating_wrapper','{{ __SELF__ }}::redraw_testimonials': '#testimonials_container'"
 																			data-request-loading="#editTesti_loading"
+																			data-request-success="$('#demo-tabs-hor').easyResponsiveTabs();"
 													>
 																	<div class="q-row">
 
 																		<div class="q-col-1-2">
-																				<input type="radio" name="vote" value="up" {% if testimonial.rating==1 %}checked="checked"{% endif %} />
-																				<span class="large-text rating"> Mahusay <i class="fa fa-thumbs-up"></i></span>
+																				<input type="radio" name="vote" value="1" {% if testimonial.rating==1 %}checked="checked"{% endif %} />
+																				<span class="large-text rating"> Excellent <i class="fa fa-thumbs-up"></i></span>
 																		</div>
 																		<div class="q-col-1-2">
-																				<input type="radio" name="vote" value="down" {% if testimonial.rating==0 %}checked="checked"{% endif %} />
-																				<span class="large-text rating negative-rating"> Pangkaraniwan <i class="fa fa-thumbs-down"></i></span>
+																				<input type="radio" name="vote" value="0" {% if testimonial.rating==0 %}checked="checked"{% endif %} />
+																				<span class="large-text rating negative-rating"> Mediocre <i class="fa fa-thumbs-down"></i></span>
 																		</div>
 
 																	</div>

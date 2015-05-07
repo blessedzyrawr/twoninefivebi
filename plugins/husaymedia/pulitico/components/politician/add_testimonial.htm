@@ -5,17 +5,17 @@
 																			id="form-add-testi"
 																			class="note"
 																			data-request="onAddTestimonial"
-																			data-request-update="'{{ __SELF__ }}::edit_testimonial': '#my_testimonial'"
-																			data-request-success="$('recalculate').click()"
+																			data-request-update="'{{ __SELF__ }}::edit_testimonial': '#my_testimonial','{{ __SELF__ }}::recalculate_rating': '#rating_wrapper','{{ __SELF__ }}::redraw_testimonials': '#testimonials_container'"
 																			data-request-loading="#addTesti_loading"
+																			data-request-success="$('#demo-tabs-hor').easyResponsiveTabs();"
 													>
 																	<div class="q-row">
 
 																		<div class="q-col-1-2">
-																				<input type="radio" name="vote" value="1" /><span class="large-text rating"> Mahusay <i class="fa fa-thumbs-up"></i> </span>
+																				<input type="radio" name="vote" value="1" /><span class="large-text rating"> Excellent <i class="fa fa-thumbs-up"></i> </span>
 																		</div>
 																		<div class="q-col-1-2">
-																				<input type="radio" name="vote" value="0" /><span class="large-text rating negative-rating"> Pangkaraniwan <i class="fa fa-thumbs-down"></i></span>
+																				<input type="radio" name="vote" value="0" /><span class="large-text rating negative-rating"> Mediocre <i class="fa fa-thumbs-down"></i></span>
 																		</div>
 
 																	</div>

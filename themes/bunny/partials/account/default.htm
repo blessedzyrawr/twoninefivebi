@@ -1,0 +1,13 @@
+{% if not user %}
+
+    {% partial __SELF__ ~ '::register' %}
+
+    {% partial __SELF__ ~ '::signin' %}
+
+{% else %}
+
+    {% partial __SELF__ ~ '::activation_check' %}
+
+    {% partial __SELF__ ~ '::update' %}
+
+{% endif %}

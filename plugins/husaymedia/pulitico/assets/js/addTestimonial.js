@@ -1,0 +1,6 @@
+/*
+ * Directory Custom Scripts
+ */
+$(function (){
+
+});

@@ -24,20 +24,6 @@ class Title extends Model {
     ];
 
 
-				/**
-     * @var array Cache for nameList() method
-     */
-    protected static $nameList = null;
-
-				public static function getNameList()
-    {
-        if (self::$nameList)
-            return self::$nameList;
-
-        return self::$nameList = self::lists('name', 'id');
-
-    }
-
 				public function children()
     {
 

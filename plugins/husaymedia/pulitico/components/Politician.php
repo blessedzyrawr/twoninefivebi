@@ -61,7 +61,6 @@ class Politician extends ComponentBase
 
 
 
-
     public function getPolitician()
     {
 
@@ -76,18 +75,6 @@ class Politician extends ComponentBase
     public function onRun()
     {
         $this->politician = $this->page['politician'] = $this->getPolitician();
-
-
-        /*
-         * Add a "url" helper attribute for linking to each category
-         */
-        if ($this->politician && $this->politician->count()) {
-
-        }
-
-
-
-        $this->addJs('assets/js/addTestimonial.js');
     }
 
     public function onAddTestimonial()
@@ -131,10 +118,15 @@ class Politician extends ComponentBase
             if (!$user = Auth::getUser()) {
                 throw new ApplicationException('You should be logged in.');
             }
-            $this->politician = $this->page['politician'] = $this->getPolitician();
+            $politician = $this->getPolitician();
+            $testimonial = TestiModel::where('user_id','=',$user->id)->where('politician_id','=',$politician->id)->first();
+            $testimonial->rating = post('vote');
+            $testimonial->comment = post('testimonial');
+            $testimonial->save();
+            $this->page['testimonial'] = $testimonial;
 
-            $this->page['testimonial'] = $result = TestiModel::editTestimonial($this->politician, $user, post());
-
+            //get new instance of politician with updated testimonials
+            $this->page['politician'] = $politician = $this->getPolitician();
 
             if($result)
             {

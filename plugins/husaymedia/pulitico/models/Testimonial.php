@@ -36,17 +36,8 @@ class Testimonial extends Model {
         $testi->user_id = $user->id;
         $testi->rating = array_get($data, 'vote', TRUE);
         $testi->comment = array_get($data, 'testimonial');
-        return $testi->save();
-    }
-
-				public static function editTestimonial($politician, $user, $data)
-    {
-        $testi = new static;
-        $testi->politician_id = $politician->id;
-        $testi->user_id = $user->id;
-        $testi->rating = array_get($data, 'vote', TRUE);
-        $testi->comment = array_get($data, 'testimonial');
-        return $testi->save();
+								$testi->save();
+        return $testi;
     }
 
 				/**

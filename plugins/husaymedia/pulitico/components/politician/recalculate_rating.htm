@@ -1,3 +1,44 @@
-{% if politician!=null %}
-<p class="large-text rating {% if politician.getRating<0 %}negative-rating{% endif %}"><i class="fa fa-thumbs-down"></i> {{ politician.getRating }}</p>
-{% endif %}
+
+ <div class="pricing-container">
+         <ul class="pricing {% if politician.getRating<0 %}pricing-best-value{% endif %}">
+										<li class="pricing-heading"><h3>Approval Rating</h3></li>
+          <li class="pricing-value">
+           {% if politician.getRating<0 %}
+											<i class="fa fa-thumbs-down {% if politician.getRating<0 %}rating negative-rating{% endif %}"></i>
+           {% elseif politician.testimonials.count==0 %}
+            <i class="fa fa-question"></i>
+           {% elseif politician.getRating==0 %}
+            <i class="fa fa-meh-o"></i>
+											{% else %}
+											<i class="fa fa-thumbs-up"></i>
+           {% endif %}
+          </li>
+          {% if politician.getPositiveTestimonials.count>0 %}
+										<li>{{politician.getPositiveTestimonials.count}} Positive{% if politician.getPositiveTestimonials.count>1 %}s{% endif %}</li>
+          {% endif %}
+										{% if politician.getNegativeTestimonials.count>0 %}
+										<li>{{politician.getNegativeTestimonials.count}} Negative{% if politician.getNegativeTestimonials.count>1 %}s{% endif %}</li>
+          {% endif %}
+          {% if politician.testimonials.count>0 %}
+           <li>
+            {{politician.testimonials.count}} Total Ratings
+           </li>
+           {% if politician.getRating==0 %}
+            <li>
+            Relaxed Opinions
+            </li>
+           {% else %}
+            <li class="pricing-value"><span class="{% if politician.getRating<0 %}rating negative-rating{% endif %}">{{ politician.getRating }}<sup>%</sup></span></li>
+           {% endif %}
+          {% else %}
+           <li>
+           No Ratings Yet. Be the first to <a href="#my_testimonial">rate</a>!
+           </li>
+          {% endif %}
+
+
+
+
+
+									</ul>
+ </div>

@@ -74,33 +74,33 @@
            <div class="q-col-1-2">
             <h3>Filter by Location:</h3>
             <ul id="filterRegion">
-                  {% for regions in topLevelLocations %}
+                  {% for region in __SELF__.getRegions() %}
                     <li>
                       <a
-                         href="{{ url_current() }}/{{ regions.slug }}/{{ regions.id }}"
-                         data-request-data="filterSlug:'{{ regions.slug }}',filterId:'{{ regions.id }}',type:'region'"
+                         href="{{ page.url }}/{{ region.slug }}/{{ region.id }}"
+                         data-request-data="filterSlug:'{{ region.slug }}',filterId:'{{ region.id }}',type:'region'"
                          data-request="onFilter"
                          data-request-success="window.regionFilters.collapseAll();window.scrollToTop()"
                          data-request-update="'{{ __SELF__ }}::filter_result': '#search_results_placeholder'" >
-                          {{ regions.name }}
+                          {{ region.name }}
                       </a>
-                      {% if regions.children().count > 0 %}
+                      {% if __SELF__.getProvinces(region.id).count > 0 %}
 
                         <ul>
-                        {% for provinces in regions.children() %}
+                        {% for province in __SELF__.getProvinces(region.id) %}
                           <li>
                             <a
-                               href="{{ url_current() }}/{{ provinces.slug }}/{{ provinces.id }}"
-                               data-request-data="filterSlug:'{{ provinces.slug }}',filterId:'{{ provinces.id }}',type:'region'"
+                               href="{{ url_current() }}/{{ province.slug }}/{{ province.id }}"
+                               data-request-data="filterSlug:'{{ province.slug }}',filterId:'{{ province.id }}',type:'region'"
                                data-request="onFilter"
                                data-request-success="window.regionFilters.collapseAll();window.scrollToTop()"
                                data-request-update="'{{ __SELF__ }}::filter_result': '#search_results_placeholder'" >
-                                {{ provinces.name }}
+                                {{ province.name }}
                             </a>
-                              {% if provinces.children().count > 0 %}
+                              {% if __SELF__.getCities(province.id).count > 0 %}
 
                                 <ul>
-                                {% for city in provinces.children() %}
+                                {% for city in __SELF__.getCities(province.id) %}
                                   <li>
                                     <a
                                        href="{{ url_current() }}/{{ city.slug }}/{{ city.id }}"
